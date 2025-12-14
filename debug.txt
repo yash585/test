@@ -1,0 +1,86 @@
+1. adb start-server
+
+2. adb kill-server
+
+3. adb reboot
+	a. adb reboot recovery
+	b. adb reboot-bootloader
+	c. adb root
+
+4. adb usb
+
+5. adb devices -l
+
+6. adb connect ip_address_of_device
+
+7. adb shell getprop ro.build.version.release
+
+8. adb logcat
+
+9. adb logcat -c
+
+10. adb logcat -d > [path_to_file]
+
+11. adb bugreport > [path_to_file]
+
+12. adb push [source] [destination]
+
+13. adb pull [device file location] [local file location]
+
+14. adb -e install path/to/app.apk
+	a. -d
+	b. -e
+	c. -s <serial_number>
+	d. -p <product name or path>
+
+15. adb uninstall com.myAppPackage
+	a. adb uninstall <app .apk name>
+	b. adb uninstall -k <app .apk name>
+
+16. adb shell pm uninstall com.example.MyApp
+
+17. adb shell pm clear [package]
+
+18. adb shell am start -W -c android.intent.category.HOME -a android.intent.action.MAIN // Home Button
+
+19. Activity Manager
+	adb shell am start -a android.intent.action.VIEW
+	adb shell am broadcast -a 'my_action'
+
+20. adb shell am start -a android.intent.action.CALL -d tel:+972527300294 // Make a call
+
+21. // Reset permissions
+	adb shell pm reset-permissions -p your.app.package
+	adb shell pm grant [packageName] [ Permission] // Grant a permission to an app. 
+	adb shell pm revoke [packageName] [ Permission] // Revoke a permission from an app.
+
+22. Key event
+	a. adb shell input keyevent 3
+	b. adb shell input keyevent 4 // Back btn
+	c. adb shell input keyevent 5 // Call
+	d. adb shell input keyevent 6 // End call
+	e. adb shell input keyevent 26 // Turn Android device ON and OFF. It will toggle device to on/off status.
+	f. adb shell input keyevent 27 // Camera
+	g. adb shell input keyevent 64 // Open browser
+	h. adb shell input keyevent 66 // Enter
+	i. adb shell input keyevent 67 // Delete (backspace)
+	j. adb shell input keyevent 207 // Contacts
+	k. adb shell input keyevent 220 / 221 // Brightness down/up
+	l. adb shell input keyevent 277 / 278 /279 //Cut/Copy/Paste
+
+23. Device information
+	a. adb get-statе (print device state)
+	b. adb get-serialno (get the serial number)
+	c. adb shell dumpsys iphonesybinfo (get the IMEI)
+	d. adb shell netstat (list TCP connectivity)
+	e. adb shell pwd (print current working directory)
+	f. adb shell dumpsys battery (battery status)
+	g. adb shell pm list features (list phone features)
+	h. adb shell service list (list all services)
+	i. adb shell dumpsys activity <package>/<activity>(activity info)
+	j. adb shell ps (print process status)
+	k. adb shell wm size (displays the current screenresolution)
+
+24. adb shell screencap -p "/path/to/screenshot.png"
+
+25. adb shell screenrecord "/path/to/record.mp4"
